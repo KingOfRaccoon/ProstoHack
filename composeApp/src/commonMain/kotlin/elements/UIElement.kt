@@ -15,7 +15,7 @@ import kotlinx.serialization.json.jsonPrimitive
 
 @Serializable(with = UIElement.Serializer::class)
 interface UIElement {
-    val ord: Int
+    var ord: Int
     val elementType: String
 //        get() = this::class.simpleName.orEmpty()
 
@@ -29,6 +29,7 @@ interface UIElement {
             encodeDefaults = true
             prettyPrint = true
             coerceInputValues = true
+            useArrayPolymorphism = true
         }
         override val descriptor: SerialDescriptor
             get() = PolymorphicSerializer(UIElement::class).descriptor

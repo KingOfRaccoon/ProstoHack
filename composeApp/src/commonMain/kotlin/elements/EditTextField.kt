@@ -12,7 +12,7 @@ data class EditTextField(
     var value: String,
     val key: String,
     val hint: String,
-    override val ord: Int,
+    override var ord: Int,
     override val elementType: String = this::class.simpleName.orEmpty()
 ) : UIElement {
     @Composable

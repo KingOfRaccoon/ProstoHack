@@ -1,14 +1,14 @@
-import elements.Navigation
+import elements.FlowNavigation
 import io.ktor.http.Parameters
 import util.Postman
 import util.Resource
 
 class DataService(private val postman: Postman) {
-    val baseUrl = "https://humorous-ringtail-abnormally.ngrok-free.app/"
-    val tagNavigation = ""
+    private val baseUrl = "https://humorous-ringtail-abnormally.ngrok-free.app/"
+    private val tagNavigation = "getStartFlow"
 
-    suspend fun getNavigation(): Resource<Navigation> {
-        return postman.get(baseUrl, tagNavigation)
+    suspend fun getNavigation(): Resource<FlowNavigation> {
+        return postman.get(baseUrl, tagNavigation, arguments = mapOf("param" to typeDevice))
     }
 
     suspend fun get(route: String, mapData: Map<String, String>): Resource<String> {

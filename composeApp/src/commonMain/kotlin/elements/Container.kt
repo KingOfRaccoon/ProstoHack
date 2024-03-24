@@ -6,8 +6,9 @@ import androidx.compose.runtime.Composable
 interface Container: UIElement {
     val texts: List<TextField>
     val edits: List<EditTextField>
-    val buttons: List<Button>
+    var buttons: List<Button>
     val images: List<Image>
+    val bottom: UIElement?
     override val elementType: String
 
     @Composable

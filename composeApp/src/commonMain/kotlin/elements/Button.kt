@@ -1,6 +1,6 @@
 package elements
 
-import DataService
+import DataViewModel
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,7 +17,7 @@ data class Button(
     override val route: String,
     override val routeNavigation: String,
     override val type: String,
-    override val ord: Int,
+    override var ord: Int,
     val getMapData: () -> Map<String, String> = { mapOf() },
     override val elementType: String = this::class.simpleName.orEmpty()
 ) : UIElement, UIClick {
@@ -37,8 +37,8 @@ data class Button(
             TypeButton.Create.name + "/" + TypeButton.Navigate.name -> {
                 MainScope().launch {
                     val request = function(route, getMapData())
-                    if (request.status.also { println("status: $it") } < 400) {
-                        navigateTo(routeNavigation)
+                    if (request.status.also { println("status: $it") } < 300) {
+//                        navigateTo(routeNavigation)
                     } else {
                         navigateTo("error/$request")
                     }
@@ -55,16 +55,18 @@ data class Button(
 
     @Composable
     override fun render(navigateTo: (String) -> Unit) {
-        val dataService = koinInject<DataService>()
+        val dataViewModel = koinInject<DataViewModel>()
         Button({
             onClick(
                 { navigateTo(it) }
             ) { route: String, data: Map<String, String> ->
                 runBlocking {
-                    dataService.get(
+                    dataViewModel.load(
                         route,
                         data
-                    )
+                    ).also {
+                        println("return")
+                    }
                 }
             }
         }) {

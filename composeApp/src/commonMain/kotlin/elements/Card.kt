@@ -1,6 +1,6 @@
 package elements
 
-import DataService
+import DataViewModel
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,12 +24,18 @@ data class Card(
     override val route: String,
     override val routeNavigation: String,
     override val type: String,
-    override val ord: Int = 0,
-    override val elementType: String = this::class.simpleName.orEmpty()
+    override var ord: Int = 0,
+    override val elementType: String = this::class.simpleName.orEmpty(),
+    override val bottom: UIElement? = null
 ) : Container, UIClick {
 
     init {
         buttons = buttons.map { it.copy(getMapData = ::getMapData) }
+        setInButton(bottom)
+    }
+    private fun setInButton(bottom: UIElement?) {
+        if (bottom is Container)
+            bottom.buttons = bottom.buttons.map { it.copy(getMapData = ::getMapData) }
     }
 
     override fun onClick(
@@ -58,11 +64,11 @@ data class Card(
     @Composable
     @OptIn(ExperimentalMaterialApi::class)
     override fun render(navigateTo: (String) -> Unit) {
-        val dataService = koinInject<DataService>()
+        val dataViewModel = koinInject<DataViewModel>()
         Card({
             onClick({ navigateTo(route) }) { route: String, data: Map<String, String> ->
                 runBlocking {
-                    dataService.get(
+                    dataViewModel.load(
                         route,
                         data
                     )
@@ -76,6 +82,7 @@ data class Card(
                 getElements().forEach {
                     it.render(navigateTo)
                 }
+                bottom?.render(navigateTo)
             }
         }
     }

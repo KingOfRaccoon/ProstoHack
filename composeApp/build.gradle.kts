@@ -62,6 +62,7 @@ kotlin {
             implementation("io.ktor:ktor-client-serialization:$ktorVersion")
             implementation("io.ktor:ktor-client-core:$ktorVersion")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+            implementation("sh.calvin.reorderable:reorderable:1.3.3")
         }
 
         desktopMain.dependencies {
@@ -72,19 +73,22 @@ kotlin {
         val iosX64Main by getting {
             dependencies {
                 dependsOn(commonMain)
-                implementation("io.ktor:ktor-client-cio:2.3.2")
+//                implementation("io.ktor:ktor-client-cio:2.3.2")
+                implementation("io.ktor:ktor-client-darwin:2.3.2")
             }
         }
         val iosArm64Main by getting {
             dependencies {
                 dependsOn(commonMain)
-                implementation("io.ktor:ktor-client-cio:2.3.2")
+//                implementation("io.ktor:ktor-client-cio:2.3.2")
+                implementation("io.ktor:ktor-client-darwin:2.3.2")
             }
         }
         val iosSimulatorArm64Main by getting {
             dependencies {
                 dependsOn(commonMain)
-                implementation("io.ktor:ktor-client-cio:2.3.2")
+//                implementation("io.ktor:ktor-client-cio:2.3.2")
+                implementation("io.ktor:ktor-client-darwin:2.3.2")
             }
         }
     }

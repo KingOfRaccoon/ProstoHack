@@ -15,7 +15,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class LazyColumn(
     override val elements: List<UIElement>,
-    override val ord: Int = 0,
+    override var ord: Int = 0,
     override val elementType: String = this::class.simpleName.orEmpty()
 ) : ListView {
     @Composable

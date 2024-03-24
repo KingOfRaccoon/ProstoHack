@@ -14,12 +14,17 @@ fun App() {
         val navigator = rememberNavigator()
         val viewModel = koinInject<DataViewModel>()
         val navigation = viewModel.navigationFlow.collectAsState()
-        navigation.value.data?.let { navigation ->
+        navigation.value.data?.let {
             MaterialTheme {
-                NavHost(navigator, navigation.startRoute) {
-                    navigation.screens.forEach { screen ->
-                        scene(screen.route) {
-                            screen.content.render { navigator.navigate(it) }
+                NavHost(navigator, it.startRoute) {
+                    it.flows.forEach { flow ->
+                        println(flow.routeFlow)
+                        group(flow.routeFlow, flow.startRoute) {
+                            flow.screens.forEach { screen ->
+                                scene(screen.route){
+                                    screen.content.render { navigator.navigate(it) }
+                                }
+                            }
                         }
                     }
 

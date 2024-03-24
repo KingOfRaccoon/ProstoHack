@@ -28,6 +28,7 @@ interface ListView : UIElement {
             encodeDefaults = true
             prettyPrint = true
             coerceInputValues = true
+            useArrayPolymorphism = true
         }
         override val descriptor: SerialDescriptor
             get() = PolymorphicSerializer(UIElement::class).descriptor
