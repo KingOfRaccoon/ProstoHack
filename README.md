@@ -19,9 +19,20 @@ Front-end приложения, разработанного для механи
 - [Koin](https://insert-koin.io)
 - [Precompose](https://github.com/Tlaster/PreCompose)
 
+## Запуск приложения
+
+IDE: Android Studio/Fleet (на macOS может запускать iOS) или связка Xcode (доступна только под macOS, нужна для запуска приложения на iOS) и IntellijIdea (нужна для запуска приложения под Android/Desktop/Web)
+
+Плагины: необходимо установить плагин Kotlin Multiplatform Mobile
+На macOS необходимо уставить cocoapods (это можно сделать через brew)
+
+Запуск: для запуска мобильного приложения в эмуляторе понадобится виртуализация
+Для Intel: Установка Intel HAXM
+Для AMD: включить в настройках BIOS/UEFI виртуализацию
+
 ## Скриншоты
 <p>
-<img src="https://github.com/KingOfRaccoon/ToWork/blob/master/Screenshot_20240329_122243.png" alt="Онбординг" width="300" />
-<img src="https://github.com/KingOfRaccoon/ToWork/blob/master/Screenshot_20240329_122319.png" alt="Авторизация" width="300" />
-<img src="https://github.com/KingOfRaccoon/ToWork/blob/master/2024-03-29 12.24.07.jpg" alt="Регистрация" width="300" />
+  <img src="../master/Screenshot_20240329_122243.png" alt="Онбординг" width="300" />
+  <img src="../master/Screenshot_20240329_122319.png" alt="Авторизация" width="300" />
+  <img src="../master/2024-03-29 12.24.07.jpg" alt="Регистрация" width="300" />
 </p>
