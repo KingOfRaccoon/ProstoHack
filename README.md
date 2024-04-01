@@ -32,7 +32,14 @@ IDE: Android Studio/Fleet (на macOS может запускать iOS) или 
 
 ## Скриншоты
 <p>
-  <img src="../master/Screenshot_20240329_122243.png" alt="Онбординг" width="300" />
-  <img src="../master/Screenshot_20240329_122319.png" alt="Авторизация" width="300" />
-  <img src="../master/2024-03-29 12.24.07.jpg" alt="Регистрация" width="300" />
+  <img src="../master/splash.jpg" alt="Заставка" width="300" />
+  <img src="../master/enter.jpg" alt="Авторизация" width="300" />
+  <img src="../master/main.jpg" alt="Главный экран" width="300" />
 </p>
+
+## Видео-демонстрация
+
+[Видео](https://youtube.com/shorts/Yk9YlZg1AfQ?si=6DMk7B1UA5bOWpiW)
+
+### Презентация
+Ссылка на [Google Disk](https://drive.google.com/file/d/1Nh49nEqURY7byS3OAFRoZPiZ2FvH1F1X/view?usp=share_link)
