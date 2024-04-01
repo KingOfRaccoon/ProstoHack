@@ -12,10 +12,9 @@ Front-end приложения, разработанного для механи
 
 ## Стек приложения
 
-- [Compose Multiplatfrom](https://www.jetbrains.com/lp/compose-multiplatform/)
+- [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 - [Ktor](https://ktor.io/docs/welcome.html)
 - [Kamel](https://github.com/Kamel-Media/Kamel)
-- [Multiplafrom Settings](https://github.com/russhwolf/multiplatform-settings)
 - [Koin](https://insert-koin.io)
 - [Precompose](https://github.com/Tlaster/PreCompose)
 
